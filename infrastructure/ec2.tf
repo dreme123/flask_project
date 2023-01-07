@@ -1,11 +1,11 @@
 data "aws_ami" "amazon-linux-2" {
   most_recent = true
   filter {
-    name   = "owner-alias"
+    name   = "VSM"
     values = ["amazon"]
   }
   filter {
-    name   = "name"
+    name   = "nameVSM"
     values = ["amzn2-ami-hvm*"]
   }
 }
