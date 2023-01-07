@@ -14,7 +14,7 @@ pipeline {
         stage('Test') {
             steps {
               sh '''
-                docker run -dit --name dreme-p 30000:5000 "${image_name}:$GIT_COMMIT"
+                docker run -dit --name dreme -p 30000:5000 "${image_name}:$GIT_COMMIT"
                 sleep 10
                 curl localhost:30000
                 exit_status=$?
