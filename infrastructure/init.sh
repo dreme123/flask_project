@@ -31,16 +31,21 @@
       chmod +x ./kind
       sudo mv ./kind /usr/local/bin/kind
 
-      echo "apiVersion: kind.x-k8s.io/v1alpha4
-      kind: Cluster
-      nodes:
-      - role: control-plane
-        extraPortMappings:
-        - containerPort: 30000
-          hostPort: 30000
-          listenAddress: "0.0.0.0" # Optional, defaults to "0.0.0.0"
-          protocol: tcp # Optional, defaults to tcp
-      -role: worker" > cluster.yaml
+      echo "kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+nodes:
+- role: control-plane
+  # port forward 80 on the host to 80 on this node
+  extraPortMappings:
+  - containerPort: 30000
+    hostPort: 30000
+    # optional: set the bind address on the host
+    # 0.0.0.0 is the current default
+    listenAddress: "0.0.0.0"
+    # optional: set the protocol to one of TCP, UDP, SCTP.
+    # TCP is the default
+    protocol: TCP
+- role: worker" > cluster.yaml
       
       kind create cluster --config cluster.yaml
       mkdir -p /var/lib/jenkins/.kube/

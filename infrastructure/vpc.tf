@@ -13,6 +13,13 @@ resource "aws_security_group" "infra" {
   }
   ingress {
     description = "TCP from VPC"
+    from_port   = 30000
+    to_port     = 30000
+    protocol    = "tcp"
+    cidr_blocks = [local.my_ip]
+  }
+  ingress {
+    description = "TCP from VPC"
     from_port   = 5000
     to_port     = 5000
     protocol    = "tcp"
