@@ -14,12 +14,12 @@ pipeline {
         stage('Test') {
             steps {
               sh '''
-                docker run -dit -p 30000:5000 "${image_name}:$GIT_COMMIT"
+                docker run -dit --name dreme-p 30000:5000 "${image_name}:$GIT_COMMIT"
                 sleep 10
                 curl localhost:30000
                 exit_status=$?
                 if [[ $exit_status == 0 ]]
-                then echo "SUCCESSFUL TESTS" && docker stop ${containerName}
+                then echo "SUCCESSFUL TESTS" && docker stop dreme
                 else echo "FAILED TESTS" && docker stop $(docker ps -q) && exit 1
                 fi
                '''
