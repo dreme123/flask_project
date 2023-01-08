@@ -53,5 +53,5 @@ nodes:
       kind get kubeconfig > config
       cp config /var/lib/jenkins/.kube/config
       chown -R jenkins: /var/lib/jenkins && chmod 600 /var/lib/jenkins/.kube/config
-      helm config set file /var/lib/jenkins/.kube/config
+      export KUBECONFIG=/var/lib/jenkins/.kube/config
 
