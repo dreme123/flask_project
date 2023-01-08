@@ -19,7 +19,7 @@ pipeline {
                 curl localhost:5000
                 exit_status=$?
                 if [[ $exit_status == 0 ]]
-                then echo "SUCCESSFUL TESTS" && docker rm dreme
+                then echo "SUCCESSFUL TESTS" && docker stop dreme && docker rm dreme
                 else echo "FAILED TESTS" && docker stop $(docker ps -q) && exit 1
                 fi
                '''
