@@ -33,6 +33,7 @@
 
       echo "kind: Cluster
 apiVersion: kind.x-k8s.io/v1alpha4
+name: flask-cluster
 nodes:
 - role: control-plane
   # port forward 80 on the host to 80 on this node
