@@ -4,8 +4,8 @@ locals {
   # security_group_id = "sg-0d2df80afd378b5d5"#
   name          = "flask_final"
   instance_type = "t2.xlarge"
-  acess_key     = "AKIARDRKVN3WQYLU5GUH"
-  secret_key    = "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"
+  acess_key     = "################"
+  secret_key    = "################"
   region        = "eu-central-1"
   my_ip         = "0.0.0.0/0"
 }
