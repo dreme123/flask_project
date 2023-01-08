@@ -36,7 +36,7 @@ pipeline {
         stage("Deploy") {
             steps {
                 sh '''
-                    helm install --debug flask helm/ --atomic --wait --install --set deployment.tag=$GIT_COMMIT --set deployment.env=dev
+                    helm upgrade --debug --atomic flask helm/ --wait --set deployment.tag=$GIT_COMMIT --set deployment.env=dev
                 '''
           }
         }
