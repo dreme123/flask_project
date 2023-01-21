@@ -11,7 +11,7 @@
 
        #####Minikube######
        curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 && chmod +x minikube && sudo mv minikube /usr/local/bin/
-       minikube start
+       sudo minikube start --driver=none
 
        ####KUBECTL######
        curl -LO https://dl.k8s.io/release/v1.23.6/bin/linux/amd64/kubectl
